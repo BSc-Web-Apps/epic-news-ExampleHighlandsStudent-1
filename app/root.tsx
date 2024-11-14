@@ -35,7 +35,7 @@ export default function App() {
 					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 				</div>
 
-				<FooterMenuRight />
+				<FooterMenuRight companyName="Epic News" altText="Epic News Logo" />
 			</div>
 		</Document>
 	)
