@@ -5,6 +5,8 @@ import ThemeSwitch from '~/components/shared-layout/ThemeSwitch'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import { type loader } from './__root.server'
+import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
+import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import useTheme from './hooks/useTheme.tsx'
 
 export const links: LinksFunction = () => {
@@ -21,6 +23,8 @@ export default function App() {
 	return (
 		<Document nonce={nonce} theme={theme}>
 			<div className="flex h-screen flex-col justify-between">
+				<HeaderWithSearch />
+
 				<div className="flex-1">
 					<main className="grid h-full place-items-center">
 						<h1 className="text-mega">Welcome to Epic News!</h1>
@@ -30,6 +34,8 @@ export default function App() {
 				<div className="container flex justify-between pb-5">
 					<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
 				</div>
+
+				<FooterMenuRight />
 			</div>
 		</Document>
 	)
