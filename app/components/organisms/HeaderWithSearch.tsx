@@ -15,12 +15,26 @@ export default function HeaderWithSearch() {
 					<NavLogo />
 				</Link>
 
-				<div>
+				<div className="flex flex-1 justify-center gap-8">
 					<Link
 						to="/news"
 						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
 					>
 						News
+					</Link>
+					<Link
+						to="/about-us"
+						prefetch="intent"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						About us
+					</Link>
+					<Link
+						to="/contact-us"
+						prefetch="intent"
+						className="text-sm font-semibold text-muted-foreground transition hover:text-foreground"
+					>
+						Contact us
 					</Link>
 				</div>
 
