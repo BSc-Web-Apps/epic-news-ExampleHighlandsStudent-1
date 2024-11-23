@@ -1,16 +1,16 @@
 import { type LinksFunction } from '@remix-run/node'
 import { Link, useLoaderData } from '@remix-run/react'
+import heroImage from '~/assets/jpg/sample-hero.jpg'
 import Document from '~/components/shared-layout/Document'
 import ThemeSwitch from '~/components/shared-layout/ThemeSwitch'
 import { useNonce } from '~/utils/nonce-provider.ts'
 import rootLinkElements from '~/utils/providers/rootLinkElements'
 import { type loader } from './__root.server'
+import { Button } from './components/atoms/Button.tsx'
 import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
-import useTheme from './hooks/useTheme.tsx'
 import HeroCallToAction from './components/organisms/Hero/HeroCallToAction.tsx'
-import heroImage from '~/assets/jpg/sample-hero.jpg'
-import { Button } from './components/atoms/Button.tsx'
+import useTheme from './hooks/useTheme.tsx'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -48,8 +48,6 @@ export default function App() {
 							</div>
 						</HeroCallToAction>
 					</main>
-
-					<div className="w-full py-16"></div>
 				</div>
 
 				<div className="container flex justify-between pb-5">
