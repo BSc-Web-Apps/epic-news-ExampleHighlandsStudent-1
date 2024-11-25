@@ -3,10 +3,16 @@ import { useState } from 'react'
 
 interface SelectorGroupProps {
 	options: { value: string; label: string }[]
+	name: string
+	initialValue?: string
 }
 
-export default function SelectorGroup({ options }: SelectorGroupProps) {
-	let [selectedValue, setSelectedValue] = useState(options[0].value)
+export default function SelectorGroup({
+	options,
+	name,
+	initialValue,
+}: SelectorGroupProps) {
+	let [selectedValue, setSelectedValue] = useState(initialValue ?? '')
 
 	return (
 		<RadioGroup.Root className="space-y-4">
@@ -25,6 +31,7 @@ export default function SelectorGroup({ options }: SelectorGroupProps) {
 					<span className="font-semibold">{option.label}</span>
 				</RadioGroup.Item>
 			))}
+			<input type="hidden" name={name} value={selectedValue} />
 		</RadioGroup.Root>
 	)
 }

@@ -15,7 +15,6 @@ import {
 } from '@remix-run/react'
 import { formatDistanceToNow } from 'date-fns'
 import { z } from 'zod'
-import { GeneralErrorBoundary } from '~/components/ErrorBoundary.js'
 import { floatingToolbarClassName } from '~/components/floating-toolbar.tsx'
 import { ErrorList } from '~/components/forms.tsx'
 import { Button } from '~/components/ui/button.tsx'
@@ -28,6 +27,7 @@ import { requireUserWithPermission } from '~/utils/permissions.server.ts'
 import { redirectWithToast } from '~/utils/toast.server.ts'
 import { userHasPermission, useOptionalUser } from '~/utils/user.ts'
 import { type loader as articlesLoader } from './articles.tsx'
+import { GeneralErrorBoundary } from '~/components/ErrorBoundary.js'
 
 export async function loader({ params }: LoaderFunctionArgs) {
 	const article = await prisma.article.findUnique({
@@ -38,6 +38,12 @@ export async function loader({ params }: LoaderFunctionArgs) {
 			content: true,
 			ownerId: true,
 			updatedAt: true,
+			category: {
+				select: {
+					id: true,
+					name: true,
+				},
+			},
 			images: {
 				select: {
 					id: true,
@@ -112,6 +118,11 @@ export default function ArticleRoute() {
 	return (
 		<div className="absolute inset-0 flex flex-col px-10">
 			<h2 className="mb-2 pt-12 text-h2 lg:mb-6">{data.article.title}</h2>
+			<div className="mb-4">
+				<p className="w-fit rounded-lg bg-card px-4 py-2 text-sm text-card-foreground">
+					{data.article.category?.name ?? 'General News'}
+				</p>
+			</div>
 			<div className={`${displayBar ? 'pb-24' : 'pb-12'} overflow-y-auto`}>
 				<ul className="flex flex-wrap gap-5 py-5">
 					{data.article.images.map(image => (

@@ -10,11 +10,23 @@ export { action } from './__article-editor.server.tsx'
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
 	const userId = await requireUserId(request)
+	const categories = await prisma.articleCategory.findMany({
+		select: {
+			id: true,
+			name: true,
+		},
+	})
 	const article = await prisma.article.findFirst({
 		select: {
 			id: true,
 			title: true,
 			content: true,
+			category: {
+				select: {
+					id: true,
+					name: true,
+				},
+			},
 			images: {
 				select: {
 					id: true,
@@ -28,13 +40,13 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 		},
 	})
 	invariantResponse(article, 'Not found', { status: 404 })
-	return json({ article: article })
+	return json({ article: article, categories })
 }
 
 export default function ArticleEdit() {
 	const data = useLoaderData<typeof loader>()
 
-	return <ArticleEditor article={data.article} />
+	return <ArticleEditor categories={data.categories} article={data.article} />
 }
 
 export function ErrorBoundary() {
