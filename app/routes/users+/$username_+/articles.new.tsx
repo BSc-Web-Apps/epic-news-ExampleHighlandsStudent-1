@@ -1,8 +1,8 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { ArticleEditor } from './__article-editor.tsx'
-import { prisma } from '~/utils/db.server.ts'
 import { useLoaderData } from '@remix-run/react'
+import { requireUserId } from '#app/utils/auth.server.ts'
+import { prisma } from '~/utils/db.server.ts'
+import { ArticleEditor } from './__article-editor.tsx'
 
 export { action } from './__article-editor.server.tsx'
 
