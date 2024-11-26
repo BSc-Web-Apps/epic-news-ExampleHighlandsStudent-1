@@ -3,6 +3,10 @@ import { type LoaderFunctionArgs } from '@remix-run/node'
 import { prisma } from '~/utils/db.server.ts'
 
 export async function loader({ params }: LoaderFunctionArgs) {
+	const { imageId } = params
+
+	console.log('imageId:', imageId)
+
 	invariantResponse(params.imageId, 'Image ID is required', { status: 400 })
 	const image = await prisma.articleImage.findUnique({
 		where: { id: params.imageId },
