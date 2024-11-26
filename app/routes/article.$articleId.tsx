@@ -1,6 +1,7 @@
 import { invariant } from '@epic-web/invariant'
 import { type LoaderFunctionArgs, json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
+import SingleArticle from '#app/components/organisms/SingleArticle.tsx'
 import { prisma } from '~/utils/db.server.ts'
 
 export async function loader({ params }: LoaderFunctionArgs) {
@@ -38,11 +39,5 @@ const ArticleNotFound = () => {
 export default function ArticlePage() {
 	const { article } = useLoaderData<typeof loader>()
 
-	return article ? (
-		<div className="container py-16">
-			<h2 className="pb-8 text-h2">{article.title}</h2>
-		</div>
-	) : (
-		<ArticleNotFound />
-	)
+	return article ? <SingleArticle article={article} /> : <ArticleNotFound />
 }
