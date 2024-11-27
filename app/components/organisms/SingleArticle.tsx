@@ -42,15 +42,17 @@ export default function SingleArticle({ article }: SingleArticleProps) {
 		),
 	}
 
+	const parentCategoryRoute = `/news/${article.category?.name.toLowerCase() || 'technology'}`
+
 	return (
 		<div className="container py-16">
 			<div className="lg:w-2/3">
 				<Link
-					to="/#top-stories"
+					to={parentCategoryRoute}
 					className="group flex items-center gap-2 pb-4 text-muted-foreground transition hover:text-foreground"
 				>
 					<FiArrowLeft className="transition group-hover:-translate-x-1" /> Back
-					to News
+					to {categoryTitle}
 				</Link>
 				<h2 className="pb-8 text-h2">{article.title}</h2>
 
@@ -66,10 +68,12 @@ export default function SingleArticle({ article }: SingleArticleProps) {
 					</div>
 				</div>
 				<div className="flex justify-between gap-4 pt-4">
-					<div className="flex items-center gap-2">
-						{categoryIcons[categoryTitle]}
-						<p className="text-sm text-violet-300">{categoryTitle}</p>
-					</div>
+					<Link to={parentCategoryRoute}>
+						<div className="flex items-center gap-2">
+							{categoryIcons[categoryTitle]}
+							<p className="text-sm text-violet-300">{categoryTitle}</p>
+						</div>
+					</Link>
 					<span className="text-sm text-muted-foreground">
 						By: {article.owner.name}
 					</span>
