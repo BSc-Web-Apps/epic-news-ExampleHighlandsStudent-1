@@ -27,7 +27,7 @@ export default function App() {
 			<HoneypotProvider {...data.honeyProps}>
 				<Document nonce={nonce} theme={theme}>
 					<div className="flex h-screen flex-col justify-between">
-						<HeaderWithSearch />
+						<HeaderWithSearch isAdminUser={data.isAdminUser} />
 
 						<div className="flex-1">
 							<Outlet />
