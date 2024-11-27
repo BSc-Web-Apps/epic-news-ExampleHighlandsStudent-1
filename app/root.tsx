@@ -28,14 +28,14 @@ export default function App() {
 			<HoneypotProvider {...data.honeyProps}>
 				<ParallaxProvider>
 					<Document nonce={nonce} theme={theme}>
-						<div className="flex h-screen flex-col justify-between">
+						<div className="relative flex h-screen flex-col justify-between">
 							<HeaderWithSearch isAdminUser={data.isAdminUser} />
 
 							<div className="flex-1">
 								<Outlet />
 							</div>
 
-							<div className="container flex justify-between pb-5">
+							<div className="fixed bottom-4 left-4 flex justify-between rounded-full bg-slate-100 p-4 shadow-lg dark:bg-slate-950">
 								<ThemeSwitch
 									userPreference={data.requestInfo.userPrefs.theme}
 								/>
