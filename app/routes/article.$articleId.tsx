@@ -11,7 +11,7 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 	// Fetch the article by ID
 	const article = await prisma.article.findUnique({
-		where: { id: articleId },
+		where: { id: articleId, isPublished: true },
 		select: {
 			id: true,
 			title: true,
