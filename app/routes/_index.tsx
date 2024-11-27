@@ -1,11 +1,13 @@
-import NoArticlesFound from '#app/components/organisms/NoArticlesFound.tsx'
 import { type MetaFunction } from '@remix-run/node'
 import { json, Link, useLoaderData } from '@remix-run/react'
-import heroImage from '~/assets/jpg/sample-hero.jpg'
+import NoArticlesFound from '#app/components/organisms/NoArticlesFound.tsx'
+import heroImage from '~/assets/png/hero-image.png'
 import { Button } from '~/components/atoms/Button.tsx'
 import ArticleCard from '~/components/organisms/ArticleCard.tsx'
 import HeroCallToAction from '~/components/organisms/Hero/HeroCallToAction.tsx'
 import { prisma } from '~/utils/db.server.ts'
+import ParallaxBackground from '~/components/organisms/Hero/ParallaxBackground.tsx'
+import gridBkg from '~/assets/png/bkg-grid@2x.png'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 
@@ -28,26 +30,33 @@ export default function Index() {
 
 	return (
 		<main>
-			<HeroCallToAction
-				image={heroImage}
-				imageRight={true}
-				hasBackgroundColour={true}
-			>
-				<div className="flex h-full flex-1 flex-col justify-between p-16">
-					<div className="flex flex-col gap-8">
-						<h2 className="text-h2">Welcome to Epic News</h2>
-						<p className="text-lg">
-							Keep up to date with the latest tech news.
-						</p>
-					</div>
-					<Button asChild variant="default" size="lg">
-						<Link to="/signup">Sign up</Link>
-					</Button>
+			<ParallaxBackground image={gridBkg}>
+				<div className="container">
+					<HeroCallToAction image={heroImage} imageRight={true}>
+						<div className="flex h-full flex-1 flex-col justify-around p-16">
+							<div className="flex flex-col gap-8">
+								<h2 className="text-7xl font-bold">
+									<span className="mb-24 bg-gradient-to-r from-violet-700 to-violet-300 bg-clip-text text-transparent">
+										Epic
+									</span>{' '}
+									News
+								</h2>
+								<p className="text-lg">
+									Keep up to date with the latest tech news.
+								</p>
+							</div>
+							<Button asChild variant="primary" size="lg">
+								<Link to="/signup">Sign up</Link>
+							</Button>
+						</div>
+					</HeroCallToAction>
 				</div>
-			</HeroCallToAction>
+			</ParallaxBackground>
 
 			<div className="container py-16">
-				<h2 className="mb-8 text-h2 font-normal">Latest news</h2>
+				<h2 id="top-stories" className="mb-8 text-h2 font-normal">
+					Top stories
+				</h2>
 
 				{allArticles.length > 0 ? (
 					<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">

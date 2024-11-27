@@ -10,6 +10,7 @@ import { type loader } from './__root.server'
 import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import useTheme from './hooks/useTheme.tsx'
+import { ParallaxProvider } from 'react-scroll-parallax'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
@@ -25,21 +26,28 @@ export default function App() {
 	return (
 		<AuthenticityTokenProvider token={data.csrfToken}>
 			<HoneypotProvider {...data.honeyProps}>
-				<Document nonce={nonce} theme={theme}>
-					<div className="flex h-screen flex-col justify-between">
-						<HeaderWithSearch isAdminUser={data.isAdminUser} />
+				<ParallaxProvider>
+					<Document nonce={nonce} theme={theme}>
+						<div className="flex h-screen flex-col justify-between">
+							<HeaderWithSearch isAdminUser={data.isAdminUser} />
 
-						<div className="flex-1">
-							<Outlet />
+							<div className="flex-1">
+								<Outlet />
+							</div>
+
+							<div className="container flex justify-between pb-5">
+								<ThemeSwitch
+									userPreference={data.requestInfo.userPrefs.theme}
+								/>
+							</div>
+
+							<FooterMenuRight
+								companyName="Epic News"
+								altText="Epic News Logo"
+							/>
 						</div>
-
-						<div className="container flex justify-between pb-5">
-							<ThemeSwitch userPreference={data.requestInfo.userPrefs.theme} />
-						</div>
-
-						<FooterMenuRight companyName="Epic News" altText="Epic News Logo" />
-					</div>
-				</Document>
+					</Document>
+				</ParallaxProvider>
 			</HoneypotProvider>
 		</AuthenticityTokenProvider>
 	)

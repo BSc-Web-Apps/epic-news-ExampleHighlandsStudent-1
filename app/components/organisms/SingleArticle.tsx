@@ -46,7 +46,7 @@ export default function SingleArticle({ article }: SingleArticleProps) {
 		<div className="container py-16">
 			<div className="lg:w-2/3">
 				<Link
-					to="/news"
+					to="/#top-stories"
 					className="group flex items-center gap-2 pb-4 text-muted-foreground transition hover:text-foreground"
 				>
 					<FiArrowLeft className="transition group-hover:-translate-x-1" /> Back

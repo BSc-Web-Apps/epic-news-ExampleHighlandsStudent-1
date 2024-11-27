@@ -24,7 +24,7 @@ const ParallaxBackground = ({
 		<div className="relative">
 			<div className="relative shadow-xl sm:overflow-hidden">
 				<div className="absolute inset-0">
-					<Parallax className="hidden lg:block" speed={-20}>
+					<Parallax className="hidden opacity-50 lg:block" speed={-20}>
 						<img
 							className="h-full w-full object-cover"
 							src={image}
