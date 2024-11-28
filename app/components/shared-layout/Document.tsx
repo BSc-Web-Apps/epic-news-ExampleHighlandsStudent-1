@@ -13,7 +13,7 @@ interface DocumentProps {
 export default function Document({
 	children,
 	nonce,
-	theme = 'dark',
+	theme = 'light',
 	env = {},
 	allowIndexing = true,
 }: DocumentProps) {
