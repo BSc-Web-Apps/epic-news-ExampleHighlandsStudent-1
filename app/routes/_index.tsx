@@ -53,26 +53,28 @@ export default function Index() {
 				</div>
 			</ParallaxBackground>
 
-			<div className="container py-16">
-				<h2 id="top-stories" className="mb-8 text-h2 font-normal">
-					Top stories
-				</h2>
+			<div className="bg-slate-100 dark:bg-slate-900">
+				<div className="container py-16">
+					<h2 id="top-stories" className="mb-8 text-h2 font-normal">
+						Top stories
+					</h2>
 
-				{allArticles.length > 0 ? (
-					<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
-						{allArticles.map(article => (
-							<ArticleCard
-								key={article.id}
-								articleId={article.id}
-								title={article.title}
-								category={article.category?.name}
-								imageId={article.images[0]?.id}
-							/>
-						))}
-					</div>
-				) : (
-					<NoArticlesFound />
-				)}
+					{allArticles.length > 0 ? (
+						<div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+							{allArticles.map(article => (
+								<ArticleCard
+									key={article.id}
+									articleId={article.id}
+									title={article.title}
+									category={article.category?.name}
+									imageId={article.images[0]?.id}
+								/>
+							))}
+						</div>
+					) : (
+						<NoArticlesFound />
+					)}
+				</div>
 			</div>
 		</main>
 	)
