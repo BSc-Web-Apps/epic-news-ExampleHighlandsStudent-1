@@ -2,9 +2,9 @@ import { invariant } from '@epic-web/invariant'
 import { type LoaderFunctionArgs, json } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
 import ArticleCard from '~/components/organisms/ArticleCard.tsx'
+import NoArticlesFound from '~/components/organisms/NoArticlesFound.tsx'
 import { prisma } from '~/utils/db.server.ts'
 import { toTitleCase } from '~/utils/stringUtils.ts'
-import NoArticlesFound from '~/components/organisms/NoArticlesFound.tsx'
 
 export async function loader({ params }: LoaderFunctionArgs) {
 	const { category } = params

@@ -1,5 +1,6 @@
 import { type LinksFunction } from '@remix-run/node'
 import { Outlet, useLoaderData } from '@remix-run/react'
+import { ParallaxProvider } from 'react-scroll-parallax'
 import { AuthenticityTokenProvider } from 'remix-utils/csrf/react'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import Document from '~/components/shared-layout/Document'
@@ -10,7 +11,6 @@ import { type loader } from './__root.server'
 import FooterMenuRight from './components/organisms/Footer/FooterMenuRight'
 import HeaderWithSearch from './components/organisms/HeaderWithSearch'
 import useTheme from './hooks/useTheme.tsx'
-import { ParallaxProvider } from 'react-scroll-parallax'
 
 export const links: LinksFunction = () => {
 	return rootLinkElements
