@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,5 +77,15 @@
 		--destructive-foreground: 0 85.7% 97.3%;
 
 		--ring: 217.2 32.6% 60%;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-heading;
+		letter-spacing: -0.05em;
 	}
 }

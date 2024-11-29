@@ -16,7 +16,15 @@ export default {
 				'2xl': '1400px',
 			},
 		},
-		extend: extendedTheme,
+		extend: {
+			fontFamily: {
+				heading: ['"Bodoni Moda"', 'serif'],
+			},
+			fontWeight: {
+				heading: '700',
+			},
+			extendedTheme,
+		},
 	},
 	presets: [customPreset],
 	plugins: [animatePlugin, radixPlugin, typographyPlugin],
