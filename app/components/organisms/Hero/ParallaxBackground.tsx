@@ -38,11 +38,10 @@ const ParallaxBackground = ({
 						alt={altText}
 						onLoad={handleLoad}
 					/>
-					<div className="bg-primary-light absolute inset-0 mix-blend-multiply" />
 				</div>
 				<div className="relative px-4 pb-8 pt-16 sm:px-6 sm:pb-14 sm:pt-24 lg:px-8 lg:pb-20 lg:pt-32">
 					<h1 className="text-center text-6xl font-extrabold tracking-tight sm:text-8xl lg:text-9xl">
-						<span className="via-secondary-dark block bg-gradient-to-r from-secondary to-secondary bg-clip-text uppercase text-transparent drop-shadow-md">
+						<span className="via-secondary-dark from-secondary to-secondary block bg-gradient-to-r bg-clip-text uppercase text-transparent drop-shadow-md">
 							{title}
 						</span>
 					</h1>

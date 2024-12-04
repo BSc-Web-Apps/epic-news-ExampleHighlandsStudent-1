@@ -27,8 +27,8 @@ export async function loader({ params }: LoaderFunctionArgs) {
 
 const ArticleNotFound = () => {
 	return (
-		<div className="container flex h-full flex-1 flex-col items-center justify-center">
-			<h2 className="pb-8 text-center text-h2">No article found 🤔</h2>
+		<div className="container flex h-full flex-1 flex-col items-center justify-center bg-gray-100">
+			<h2 className="text-h2 pb-8 text-center">No article found 🤔</h2>
 			<p className="text-center text-xl">
 				Please check the article ID in your browser and try again.
 			</p>

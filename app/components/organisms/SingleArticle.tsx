@@ -49,12 +49,12 @@ export default function SingleArticle({ article }: SingleArticleProps) {
 			<div className="lg:w-2/3">
 				<Link
 					to={parentCategoryRoute}
-					className="group flex items-center gap-2 pb-4 text-muted-foreground transition hover:text-foreground"
+					className="text-muted-foreground hover:text-foreground group flex items-center gap-2 pb-4 transition"
 				>
 					<FiArrowLeft className="transition group-hover:-translate-x-1" /> Back
 					to {categoryTitle}
 				</Link>
-				<h2 className="pb-8 text-h2">{article.title}</h2>
+				<h2 className="text-h2 pb-8">{article.title}</h2>
 
 				<div
 					className={`relative h-[18rem] object-cover md:h-[23rem] lg:h-[28rem]`}
@@ -74,7 +74,7 @@ export default function SingleArticle({ article }: SingleArticleProps) {
 							<p className="text-sm text-violet-300">{categoryTitle}</p>
 						</div>
 					</Link>
-					<span className="text-sm text-muted-foreground">
+					<span className="text-muted-foreground text-sm">
 						By: {article.owner.name}
 					</span>
 				</div>

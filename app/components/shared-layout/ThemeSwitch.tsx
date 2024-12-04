@@ -1,8 +1,8 @@
 import { getFormProps, useForm } from '@conform-to/react'
 import { useFetcher } from '@remix-run/react'
 import useOptimisticThemeMode from '~/hooks/useOptimisticThemeMode'
-import { action } from '~/root'
-import { Theme } from '~/utils/theme.server'
+import { type action } from '~/root'
+import { type Theme } from '~/utils/theme.server'
 import { Icon } from '../atoms/Icon'
 
 export default function ThemeSwitch({
@@ -29,12 +29,12 @@ export default function ThemeSwitch({
 			</Icon>
 		),
 		dark: (
-			<Icon name="moon">
+			<Icon name="moon" className="dark:text-white">
 				<span className="sr-only">Dark</span>
 			</Icon>
 		),
 		system: (
-			<Icon name="laptop">
+			<Icon name="laptop" className="dark:text-white">
 				<span className="sr-only">System</span>
 			</Icon>
 		),

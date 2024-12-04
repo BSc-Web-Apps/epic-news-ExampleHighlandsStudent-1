@@ -1,13 +1,13 @@
 import { type MetaFunction } from '@remix-run/node'
 import { json, Link, useLoaderData } from '@remix-run/react'
 import NoArticlesFound from '#app/components/organisms/NoArticlesFound.tsx'
+import gridBkg from '~/assets/png/bkg-grid@2x.png'
 import heroImage from '~/assets/png/hero-image.png'
 import { Button } from '~/components/atoms/Button.tsx'
 import ArticleCard from '~/components/organisms/ArticleCard.tsx'
 import HeroCallToAction from '~/components/organisms/Hero/HeroCallToAction.tsx'
-import { prisma } from '~/utils/db.server.ts'
 import ParallaxBackground from '~/components/organisms/Hero/ParallaxBackground.tsx'
-import gridBkg from '~/assets/png/bkg-grid@2x.png'
+import { prisma } from '~/utils/db.server.ts'
 
 export const meta: MetaFunction = () => [{ title: 'Epic News' }]
 
@@ -55,7 +55,10 @@ export default function Index() {
 
 			<div className="bg-slate-100 dark:bg-slate-900">
 				<div className="container py-16">
-					<h2 id="top-stories" className="mb-8 text-h2 font-normal">
+					<h2
+						id="top-stories"
+						className="text-h2 mb-8 font-normal dark:text-white"
+					>
 						Top stories
 					</h2>
 

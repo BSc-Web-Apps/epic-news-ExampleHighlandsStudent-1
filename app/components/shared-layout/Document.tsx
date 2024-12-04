@@ -29,7 +29,7 @@ export default function Document({
 				)}
 				<Links />
 			</head>
-			<body className="bg-background text-foreground">
+			<body className="bg-gray-100 text-slate-950 dark:bg-slate-950 dark:text-slate-50">
 				{children}
 				<script
 					nonce={nonce}
